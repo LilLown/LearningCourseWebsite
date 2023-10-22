@@ -19,10 +19,10 @@
             <div class="nav-links" id="navLinks">
                 <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">COURSE</a></li>
-                    <li><a href="">CONTACT</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
                     <!-- --------------------------------- -->
                 </ul>
             </div>
@@ -61,11 +61,11 @@
             
         </div>
         <div class="contact-col">
-            <form action="">
-                <input type="text" placeholder="Điền tên cá nhân" required>
-                <input type="email" placeholder="Điền địa chỉ email" required>
-                <input type="text" placeholder="Điền nội dung" required>
-                <textarea rows="8" placeholder="Nội dung"></textarea>
+            <form action="" class="contact_form">
+                <input class="name" type="text" placeholder="Điền tên cá nhân" required>
+                <input class="email" type="email" placeholder="Điền địa chỉ email" required>
+                <input class="title" type="text" placeholder="Tiêu đề" required>
+                <textarea class="msg" rows="8" placeholder="Nội dung"></textarea>
                 <button type="submit" class="red-btn more-btn">Gửi nội dung</button>
             </form>
         </div>
@@ -98,7 +98,31 @@
 
 
 
-
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="script.js"></script>
+    <script>
+        const form = document.querySelector('.contact_form')
+        function sendMsg(e) {
+        e.preventDefault();
+        const  name = document.querySelector('.name'),
+                email = document.querySelector('.email'),
+                title = document.querySelector('.title'),
+                msg = document.querySelector('.msg');
+
+    ///function send email
+        Email.send({
+            SecureToken : "c3a42e11-03a3-401a-98f5-758f4df8e17e",
+            To : 'hangoclongvinh@gmail.com',
+            From : email.value,
+            Subject : title.value,
+            Body : msg.value
+        }).then(
+        message => alert(message)
+        );
+
+    }
+
+    form.addEventListener('submit', sendMsg);
+    </script>
 </body>
 </html>
