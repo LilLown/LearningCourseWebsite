@@ -18,14 +18,17 @@
             <div class="nav-links" id="navLinks">
                 <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">COURSE</a></li>
-                    <li><a href="">CONTACT</a></li>
-                    <!-- --------------------------------- -->
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="course.html">COURSE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <img src="eduford_img/user2.jpg" class="user-pics">
                 </ul>
             </div>
         </nav>
+        
+    </section>
+        
 
 <!-- ---------------------------------RegForm----------------------- -->
     <div class="container ">
@@ -46,6 +49,10 @@
               <button type="button" id="signUp" name="signup_submit" value="Sign up">Sign Up</button>
               <button type="button" id="signIn" name="signin_submit" value="Sign in" class="disable">Log In</button>
             </div>
+            <div class="switch-field">
+              <button class="switch" type="button" id="switch" name="switch" value="switch">Bạn đã có tài khoản ?</button>
+            </div>
+            
           </div>
         </form>
       </div>
@@ -57,26 +64,19 @@
 
 
     
-</body>
+
   <!-- ---------------------------------    -->
   <script>
     let signUp = document.getElementById("signUp");
     let signIn = document.getElementById("signIn");
     let username = document.getElementById("username");
     let title = document.getElementById("title");
+    let switchBtn = document.getElementById("switch")
+    const usernamebox = document.getElementById("username")
+    const emailbox = document.getElementById("email")
+    const passwordbox = document.getElementById("password")
 
-    signIn.onclick = function () {
-      username.style.display = "none";
-      title.innerHTML = "Sign In";
-      signUp.classList.add("disable");
-      signIn.classList.remove("disable");
-    }
-    signUp.onclick = function () {
-      username.style.display = "block";
-      title.innerHTML = "Sign Up";
-      signUp.classList.remove("disable");
-      signIn.classList.add("disable");
-    }
+    
 
 
 
@@ -114,6 +114,8 @@
     const auth = getAuth(app);
 
 
+
+
     signUp.addEventListener('click',(e) => {
 
       var email = document.getElementById('email').value;
@@ -141,6 +143,7 @@
         // ..
       });
 
+      
     })
 
     signIn.addEventListener('click',(e) => {
@@ -171,7 +174,69 @@
 
 
     })
+    switchBtn.addEventListener('click',(e) => {
+      if (title.innerHTML == "Sign Up") {
+        switchBtn.innerHTML = "Bạn chưa có tài khoản?"
+        username.style.display = "none"
+        title.innerHTML = "Sign In";
+        signUp.classList.add("disable");
+        signIn.classList.remove("disable");
+        usernamebox.value = ''
+        emailbox.value = ''
+        passwordbox.value = ''
+      } else if (title.innerHTML == "Sign In") {
+        switchBtn.innerHTML = "Bạn đã có tài khoản?"
+        username.style.display = "block";
+        title.innerHTML = "Sign Up";
+        signUp.classList.remove("disable");
+        signIn.classList.add("disable");
+        usernamebox.value = ''
+        emailbox.value = ''
+        passwordbox.value = ''
+      } else {
+        alert("error")
+      }
+    })
+    
+    // if (username.style.display = "none") {
+    //   title.innerHTML = "Sign In";
+    //   signUp.classList.add("disable");
+    //   signIn.classList.remove("disable");
+    //   console.log(usernamebox);
+    //   console.log(emailbox);
+    //   console.log(passwordbox);
+    //   usernamebox.value = ''
+    //   emailbox.value = ''
+    //   passwordbox.value = ''
+    // }
 
+
+
+    // signIn.onclick = function () {
+    //   username.style.display = "none";
+    //   title.innerHTML = "Sign In";
+    //   signUp.classList.add("disable");
+    //   signIn.classList.remove("disable");
+    //   console.log(usernamebox);
+    //   console.log(emailbox);
+    //   console.log(passwordbox);
+    //   usernamebox.value = ''
+    //   emailbox.value = ''
+    //   passwordbox.value = ''
+    // }
+    // signUp.onclick = function () {
+    //   username.style.display = "block";
+    //   title.innerHTML = "Sign Up";
+    //   signUp.classList.remove("disable");
+    //   signIn.classList.add("disable");
+    //   console.log(usernamebox);
+    //   console.log(emailbox);
+    //   console.log(passwordbox);
+    //   usernamebox.value = ''
+    //   emailbox.value = ''
+    //   passwordbox.value = ''
+    // }
 
   </script>
+  </body>
 </html>

@@ -25,12 +25,24 @@ nav img{
 .nav-links{
     flex: 1;
     text-align: right;
+    align-items: center;
+}
+.user-pics{
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 30px;
+    display: inline-flex;
+    outline: auto;
+    
 }
 .nav-links ul li {
     list-style: none;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 20px 12px;
     position: relative;
+    list-style: none;
+    bottom: 15px;
 }
 .nav-links ul li a{
     color: white;
@@ -488,9 +500,10 @@ h3{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background: #fff;
-    padding: 50px 60px 70px;
+    background: rgba(255, 255, 255, 0.87);
+    padding: 50px 60px 100px;
     text-align: center;
+    border-radius: 10px;
 }
 .form-box h1{
     font-size: 30px;
@@ -510,7 +523,7 @@ h3{
     transform: translateX(-50%);
 }
 .input-field{
-    background: #eaeaea;
+    background: #c0c0c0;
     margin: 15px 0;
     border-radius: 3px;
     display: flex;
@@ -518,7 +531,7 @@ h3{
     max-height: 65px;
     transition: hidden 0.5s;
     overflow: hidden;
-    display: block;
+    
 }
 input{
     width: 100%;
@@ -550,6 +563,45 @@ input{
 }
 
 .btn-field button.disable{
-    background: #eaeaea;
+    background: #c0c0c0;
     color: #555;
+}
+
+
+.switch{
+    width: 50%;
+    flex-basis: 48%;
+    background: red;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+    margin-top: 20px;
+}
+/* ---------------------------SubMenu------------------------ */
+.sub-menu-wrap{
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 20px;
+}
+.sub-menu{
+    background: white;
+    padding: 20px;
+    margin: 10px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
